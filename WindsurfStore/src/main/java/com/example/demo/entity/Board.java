@@ -2,6 +2,7 @@ package com.example.demo.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 
 import javax.persistence.GeneratedValue;
@@ -16,19 +17,27 @@ import org.hibernate.annotations.Where;
 
 @Entity
 public class Board {
-	@Id//primary key
-	@GeneratedValue(strategy=GenerationType.AUTO)//autoincrementation
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	
 	private Long id;
 	private String name;
 	private String type;
 	private Long size;
-	@ManyToMany
+	@ManyToMany(cascade= {
+		CascadeType.PERSIST,
+		CascadeType.MERGE
+	})
 	@JoinTable(
 		name="sails_toUse",
-		joinColumns = @JoinColumn(name="board_type"),
-		inverseJoinColumns =@JoinColumn(name="sail_type")
-		)
+		joinColumns = @JoinColumn(name="board_id"),
+		inverseJoinColumns = @JoinColumn(name="sail_id"))
+	/*@JoinTable(
+			name="sails_toUse",
+			joinColumns = @JoinColumn(name="board_type"),
+			inverseJoinColumns = @JoinColumn(name="sail_type"))
+			@Where(clause="board_type=sail_type"*/
+	
 	private List<Sail> sails;
 	
 	public List<Sail> getSails() {

@@ -14,14 +14,15 @@ import javax.persistence.ManyToOne;
 
 public class Sail {
 	
-	@Id//primary key
-	@GeneratedValue(strategy=GenerationType.AUTO)//autoincrementation
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	
 	private Long id;
 	private String name;
 	private String type;
 	private Float size;
 	@ManyToMany(mappedBy ="sails")
+	
 	private List<Board> boards;
 	
 	public List<Board> getBoards() {

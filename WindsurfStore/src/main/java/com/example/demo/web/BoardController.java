@@ -30,6 +30,7 @@ public class BoardController {
 
 	@Autowired 
 	private BoardRepository boardRepository;
+	@Autowired
 	private SailRepository sailRepository;
 	
 	@RequestMapping(value="/board", method=RequestMethod.POST)
