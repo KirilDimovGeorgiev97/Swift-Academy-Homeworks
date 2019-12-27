@@ -28,15 +28,16 @@ public class Board {
 		CascadeType.PERSIST,
 		CascadeType.MERGE
 	})
-	@JoinTable(
+	/*@JoinTable(
 		name="sails_toUse",
 		joinColumns = @JoinColumn(name="board_id"),
-		inverseJoinColumns = @JoinColumn(name="sail_id"))
-	/*@JoinTable(
+		inverseJoinColumns = @JoinColumn(name="sail_id"))*/
+	
+	@JoinTable(
 			name="sails_toUse",
 			joinColumns = @JoinColumn(name="board_type"),
 			inverseJoinColumns = @JoinColumn(name="sail_type"))
-			@Where(clause="board_type=sail_type"*/
+			@Where(clause="board_type=sail_type")
 	
 	private List<Sail> sails;
 	

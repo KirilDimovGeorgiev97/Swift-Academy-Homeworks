@@ -43,6 +43,8 @@ public class BoardController {
 	public ResponseEntity<List<Board>> findAll(){
 		List<Board> boards = new ArrayList<>();
 		boardRepository.findAll().forEach(boards::add);
+		for(Board a:boards)
+			a.setSails(sailRepository.findByType(a.getType()));
 		return new ResponseEntity<>(boards, HttpStatus.OK);
 	}
 	

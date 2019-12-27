@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.entity.Board;
 import com.example.demo.entity.Sail;
 import com.example.demo.repository.BoardRepository;
 import com.example.demo.repository.SailRepository;
