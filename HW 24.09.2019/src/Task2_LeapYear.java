@@ -4,19 +4,18 @@ public class Task2_LeapYear {
 		Scanner myObj = new Scanner(System.in);
 		boolean LeapYear=false;
 		int year = myObj.nextInt();
+		myObj.close();
 		System.out.println(year);
-		if(((year % 100==0) && (year % 400==0))) {
-				LeapYear=true;
-				System.out.println(LeapYear);
-		}else if (year%4==0 && year%100==0){
-			System.out.println(LeapYear);
-			
-		}
-		if(year%4==0 && ((year%400==0))){
+		if(year%4==0&&year%100!=0) {
 			LeapYear=true;
 			System.out.println(LeapYear);
+			System.out.println(year%100);
+		}else if(year%4==0 && year%100==0 && year%400==0 ) {
+			LeapYear=true;
+			System.out.println(LeapYear);
+			System.out.println(year%100);
 		}
-		System.out.println(LeapYear);
+	
 	}
 }
 
